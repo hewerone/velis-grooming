@@ -1,0 +1,1560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e9e6de">
+
+<title>VELI'S GROOMING — The Art of Grooming</title>
+
+<meta name="description" content="A contemporary grooming experience. Veli's Grooming, Caledonian Road, London.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #e9e6de;
+  --paper-light: #f2efe8;
+  --ink: #252820;
+  --olive: #535b43;
+  --olive-dark: #333a2e;
+  --muted: #77796f;
+  --line: rgba(37,40,32,.22);
+  --white: #f8f6f0;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+  --display: "Manrope", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--olive);
+  color: var(--white);
+}
+
+/* PRELOADER */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--olive-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  animation: preloaderOut .8s ease 1.1s forwards;
+}
+
+.preloader-name {
+  font-family: var(--display);
+  font-size: clamp(25px, 5vw, 48px);
+  letter-spacing: .16em;
+  font-weight: 600;
+}
+
+.preloader-line {
+  width: 100px;
+  height: 1px;
+  background: rgba(255,255,255,.3);
+  overflow: hidden;
+}
+
+.preloader-line::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--white);
+  transform: translateX(-100%);
+  animation: loadLine 1s ease forwards;
+}
+
+@keyframes loadLine {
+  to { transform: translateX(0); }
+}
+
+@keyframes preloaderOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* HEADER */
+
+.header {
+  position: absolute;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 5.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(37,40,32,.18);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: .95;
+}
+
+.logo-main {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: .12em;
+}
+
+.logo-sub {
+  font-size: 8px;
+  letter-spacing: .38em;
+  margin-top: 7px;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 37px;
+}
+
+.nav a {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ink);
+  transition: width .3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav .nav-cta {
+  border: 1px solid var(--ink);
+  padding: 13px 20px;
+  transition: .3s;
+}
+
+.nav .nav-cta:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 850px;
+  height: 100vh;
+  max-height: 1050px;
+  padding: 145px 5.5% 55px;
+  display: grid;
+  grid-template-columns: 1.03fr .97fr;
+  gap: 4%;
+  align-items: center;
+  position: relative;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 30px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .23em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--olive);
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(70px, 9.3vw, 145px);
+  line-height: .84;
+  letter-spacing: -.095em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 35px 0 32px -7px;
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero h1 .italic {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -.07em;
+  color: var(--olive);
+  padding-left: 8%;
+}
+
+.hero-description {
+  max-width: 350px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 17px 20px;
+  background: var(--olive);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  transition: .35s;
+}
+
+.button-primary:hover {
+  background: var(--ink);
+  transform: translateY(-3px);
+}
+
+.button-primary span {
+  font-size: 17px;
+  line-height: 10px;
+}
+
+.text-link {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 7px;
+}
+
+.hero-visual {
+  height: min(70vh, 680px);
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  background: #b6b0a3;
+}
+
+.hero-visual img {
+  object-position: center;
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.hero-visual:hover img {
+  transform: scale(1.035);
+}
+
+.hero-image-caption {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  color: white;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+}
+
+.hero-side-note {
+  position: absolute;
+  right: 2%;
+  bottom: 12%;
+  writing-mode: vertical-rl;
+  font-size: 8px;
+  letter-spacing: .2em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.hero-index {
+  position: absolute;
+  left: 5.5%;
+  bottom: 24px;
+  font-size: 9px;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+
+/* MARQUEE */
+
+.marquee {
+  background: var(--olive);
+  color: var(--white);
+  overflow: hidden;
+  padding: 19px 0;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.marquee span {
+  font-family: var(--display);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding: 0 28px;
+}
+
+.marquee .star {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: #c6c7b6;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* INTRO */
+
+.intro {
+  padding: 150px 9% 145px;
+  display: grid;
+  grid-template-columns: .65fr 1.35fr;
+  gap: 7%;
+  align-items: start;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: .2em;
+  font-weight: 700;
+  color: var(--olive);
+  text-transform: uppercase;
+  padding-top: 12px;
+}
+
+.intro-content h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(40px, 6vw, 82px);
+  letter-spacing: -.075em;
+  line-height: .98;
+  max-width: 850px;
+}
+
+.intro-content h2 em {
+  font-family: var(--serif);
+  color: var(--olive);
+  font-weight: 500;
+}
+
+.intro-bottom {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+
+.intro-bottom p {
+  max-width: 340px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+.intro-number {
+  font-family: var(--serif);
+  font-size: 54px;
+  color: var(--olive);
+  line-height: 1;
+}
+
+/* EXPERIENCE */
+
+.experience {
+  background: var(--olive-dark);
+  color: var(--white);
+  padding: 105px 5.5% 120px;
+}
+
+.experience-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 65px;
+}
+
+.experience .section-label {
+  color: #c3c5b3;
+}
+
+.experience-heading {
+  font-family: var(--display);
+  font-size: clamp(42px, 6vw, 82px);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: .95;
+  max-width: 650px;
+  margin-top: 25px;
+}
+
+.experience-heading em {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.experience-top p {
+  width: 220px;
+  font-size: 11px;
+  line-height: 1.9;
+  color: rgba(255,255,255,.57);
+  margin-top: 40px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 7%;
+  align-items: center;
+}
+
+.experience-image {
+  height: 620px;
+  overflow: hidden;
+}
+
+.experience-image img {
+  transition: transform 1s ease;
+}
+
+.experience-image:hover img {
+  transform: scale(1.035);
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-item {
+  padding: 27px 0;
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.detail-item:last-child {
+  border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+.detail-number {
+  color: #b9bea8;
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.detail-item h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+
+.detail-item p {
+  max-width: 310px;
+  color: rgba(255,255,255,.58);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* SERVICES */
+
+.services {
+  padding: 130px 9%;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 65px;
+  gap: 30px;
+}
+
+.services-title {
+  font-family: var(--display);
+  font-size: clamp(55px, 8vw, 105px);
+  line-height: .85;
+  letter-spacing: -.09em;
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+.services-title em {
+  font-family: var(--serif);
+  font-weight: 500;
+  color: var(--olive);
+}
+
+.services-header p {
+  max-width: 250px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.9;
+  padding-bottom: 5px;
+}
+
+.service-list {
+  border-top: 1px solid var(--line);
+}
+
+.service-row {
+  padding: 29px 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 70px 1fr 1.1fr 30px;
+  align-items: center;
+  gap: 20px;
+  transition: padding .3s ease;
+}
+
+.service-row:hover {
+  padding-left: 15px;
+  padding-right: 15px;
+  background: rgba(83,91,67,.045);
+}
+
+.service-number {
+  color: var(--olive);
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.service-row h3 {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: -.055em;
+}
+
+.service-row p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.service-arrow {
+  font-size: 20px;
+  color: var(--olive);
+  transition: transform .3s;
+}
+
+.service-row:hover .service-arrow {
+  transform: translate(4px,-4px);
+}
+
+.services-note {
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+/* VISUAL STATEMENT */
+
+.statement {
+  min-height: 680px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 100px 9%;
+  background: #77766b;
+  overflow: hidden;
+}
+
+.statement-image {
+  position: absolute;
+  inset: 0;
+}
+
+.statement-image img {
+  filter: brightness(.53);
+  object-position: center 48%;
+}
+
+.statement-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 850px;
+}
+
+.statement-content .section-label {
+  color: #d4d2c4;
+}
+
+.statement-content h2 {
+  font-family: var(--display);
+  font-size: clamp(65px, 10vw, 135px);
+  line-height: .84;
+  letter-spacing: -.09em;
+  font-weight: 500;
+  margin: 35px 0;
+}
+
+.statement-content h2 em {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.statement-content p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.75);
+  max-width: 340px;
+}
+
+/* GALLERY */
+
+.gallery {
+  padding: 125px 5.5%;
+}
+
+.gallery-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 55px;
+}
+
+.gallery-heading h2 {
+  font-family: var(--display);
+  font-size: clamp(48px, 7vw, 90px);
+  font-weight: 500;
+  letter-spacing: -.08em;
+  line-height: .9;
+  margin-top: 25px;
+}
+
+.gallery-heading h2 em {
+  font-family: var(--serif);
+  color: var(--olive);
+}
+
+.gallery-heading p {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr 1fr;
+  grid-template-rows: 260px 300px;
+  gap: 13px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  background: #c5c0b3;
+}
+
+.gallery-item img {
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.055);
+}
+
+.gallery-item:first-child {
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(2) {
+  grid-column: span 2;
+}
+
+/* CONTACT */
+
+.contact {
+  background: var(--olive);
+  color: var(--white);
+  padding: 110px 9% 100px;
+}
+
+.contact-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+}
+
+.contact .section-label {
+  color: #d0d2c1;
+}
+
+.contact h2 {
+  font-family: var(--display);
+  font-size: clamp(65px, 10vw, 130px);
+  line-height: .85;
+  font-weight: 500;
+  letter-spacing: -.09em;
+  margin-top: 30px;
+}
+
+.contact h2 em {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.contact-intro {
+  max-width: 270px;
+  color: rgba(255,255,255,.7);
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 55px;
+}
+
+.contact-bottom {
+  margin-top: 100px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(255,255,255,.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.contact-label {
+  font-size: 8px;
+  color: rgba(255,255,255,.55);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  margin-bottom: 15px;
+}
+
+.contact-value {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contact-value a {
+  border-bottom: 1px solid rgba(255,255,255,.4);
+}
+
+.contact-value a:hover {
+  color: #d8d9c8;
+}
+
+/* FOOTER */
+
+.footer {
+  background: var(--olive-dark);
+  color: var(--white);
+  padding: 27px 5.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.footer p {
+  color: rgba(255,255,255,.5);
+  font-size: 8px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* REVEAL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: 720px;
+    gap: 3%;
+  }
+
+  .hero h1 {
+    font-size: clamp(65px, 9vw, 100px);
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+
+  .experience-grid {
+    gap: 5%;
+  }
+
+  .experience-image {
+    height: 520px;
+  }
+
+  .gallery-grid {
+    grid-template-rows: 220px 260px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .header {
+    padding: 22px 6%;
+  }
+
+  .logo-main {
+    font-size: 19px;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: relative;
+    z-index: 60;
+  }
+
+  .nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-105%);
+    transition: transform .45s ease;
+  }
+
+  .nav.open {
+    transform: translateY(0);
+  }
+
+  .nav a {
+    font-size: 15px;
+  }
+
+  .nav .nav-cta {
+    margin-top: 10px;
+  }
+
+  .hero {
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 145px 6% 55px;
+    gap: 42px;
+  }
+
+  .hero-copy {
+    padding: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(67px, 15vw, 105px);
+    margin: 27px 0;
+  }
+
+  .hero-description {
+    font-size: 12px;
+    max-width: 310px;
+  }
+
+  .hero-visual {
+    height: 115vw;
+    min-height: 400px;
+    max-height: 570px;
+  }
+
+  .hero-side-note {
+    display: none;
+  }
+
+  .hero-index {
+    display: none;
+  }
+
+  .intro {
+    padding: 90px 7%;
+    display: block;
+  }
+
+  .intro-content {
+    margin-top: 35px;
+  }
+
+  .intro-content h2 {
+    font-size: clamp(42px, 11vw, 66px);
+  }
+
+  .intro-bottom {
+    margin-top: 30px;
+    align-items: start;
+  }
+
+  .intro-number {
+    font-size: 38px;
+  }
+
+  .experience {
+    padding: 85px 6% 90px;
+  }
+
+  .experience-top {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .experience-heading {
+    font-size: clamp(43px, 11vw, 65px);
+  }
+
+  .experience-top p {
+    margin-top: 22px;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+  }
+
+  .experience-image {
+    width: 100%;
+    height: 110vw;
+    min-height: 390px;
+    max-height: 550px;
+  }
+
+  .experience-details {
+    width: 100%;
+  }
+
+  .services {
+    padding: 90px 7%;
+  }
+
+  .services-header {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .services-title {
+    font-size: clamp(60px, 15vw, 90px);
+  }
+
+  .services-header p {
+    margin-top: 25px;
+  }
+
+  .service-row {
+    grid-template-columns: 35px 1fr 20px;
+    gap: 12px;
+    padding: 23px 0;
+  }
+
+  .service-row h3 {
+    font-size: 22px;
+  }
+
+  .service-row p {
+    grid-column: 2;
+    grid-row: 2;
+    max-width: 300px;
+    margin-top: 2px;
+  }
+
+  .service-arrow {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .statement {
+    min-height: 560px;
+    padding: 80px 7%;
+  }
+
+  .statement-content h2 {
+    font-size: clamp(65px, 15vw, 100px);
+  }
+
+  .gallery {
+    padding: 90px 6%;
+  }
+
+  .gallery-heading {
+    display: block;
+    margin-bottom: 35px;
+  }
+
+  .gallery-heading h2 {
+    font-size: clamp(55px, 13vw, 80px);
+  }
+
+  .gallery-heading p {
+    margin-top: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px 220px 220px;
+    gap: 9px;
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-column: auto;
+  }
+
+  .contact {
+    padding: 85px 7%;
+  }
+
+  .contact-top {
+    display: block;
+  }
+
+  .contact h2 {
+    font-size: clamp(65px, 15vw, 100px);
+  }
+
+  .contact-intro {
+    margin-top: 30px;
+  }
+
+  .contact-bottom {
+    margin-top: 65px;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 35px;
+  }
+
+  .footer {
+    padding: 25px 6%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer p {
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 62px;
+  }
+
+  .hero-actions {
+    gap: 16px;
+  }
+
+  .button-primary {
+    gap: 18px;
+    padding: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-rows: 290px 180px 180px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="preloader">
+  <div class="preloader-name">VELI'S</div>
+  <div class="preloader-line"></div>
+</div>
+
+<header class="header">
+  <a href="#home" class="logo">
+    <span class="logo-main">VELI'S</span>
+    <span class="logo-sub">GROOMING HOUSE</span>
+  </a>
+
+  <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+  <nav class="nav">
+    <a href="#experience">Experience</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Find us</a>
+    <a href="#contact" class="nav-cta">Get in touch ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">A contemporary grooming house · London</div>
+
+    <h1>
+      <span>The art</span>
+      <span class="italic">of</span>
+      <span>grooming.</span>
+    </h1>
+
+    <p class="hero-description">
+      A considered approach to modern men's grooming.
+      Where individual style meets craftsmanship,
+      precision and personal attention.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#services" class="button-primary">
+        Discover the experience <span>↗</span>
+      </a>
+      <a href="#contact" class="text-link">Find our location</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img
+      src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1400&q=90"
+      alt="Barber carefully working on a haircut"
+    >
+    <div class="hero-image-caption">Craft. Character. Precision.</div>
+  </div>
+
+  <div class="hero-side-note">A different perspective on grooming</div>
+  <div class="hero-index">01 — 06 / VELI'S GROOMING</div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Modern craft</span><span class="star">✳</span>
+    <span>Personal style</span><span class="star">✳</span>
+    <span>Considered detail</span><span class="star">✳</span>
+    <span>The art of grooming</span><span class="star">✳</span>
+    <span>Modern craft</span><span class="star">✳</span>
+    <span>Personal style</span><span class="star">✳</span>
+    <span>Considered detail</span><span class="star">✳</span>
+    <span>The art of grooming</span><span class="star">✳</span>
+  </div>
+</div>
+
+<section class="intro reveal">
+  <div class="section-label">01 / The philosophy</div>
+
+  <div class="intro-content">
+    <h2>
+      Style is personal.
+      Great grooming should feel
+      <em>the same.</em>
+    </h2>
+
+    <div class="intro-bottom">
+      <p>
+        More than a routine, grooming is an expression
+        of individuality. A moment to slow down,
+        pay attention to the details and leave feeling
+        like yourself.
+      </p>
+
+      <div class="intro-number">V.</div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="experience-top reveal">
+    <div>
+      <div class="section-label">02 / The experience</div>
+      <h2 class="experience-heading">
+        Not simply a haircut.<br>
+        A moment of <em>your own.</em>
+      </h2>
+    </div>
+
+    <p>
+      A contemporary take on the traditional
+      barbershop experience. Focused on the
+      person, the process and the result.
+    </p>
+  </div>
+
+  <div class="experience-grid">
+    <div class="experience-image reveal">
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=90"
+        alt="Contemporary barber studio interior"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="experience-details">
+      <div class="detail-item reveal">
+        <div class="detail-top">
+          <span class="detail-number">01</span>
+          <span>✳</span>
+        </div>
+        <h3>Personal attention</h3>
+        <p>
+          Every style begins with understanding
+          the individual behind it.
+        </p>
+      </div>
+
+      <div class="detail-item reveal">
+        <div class="detail-top">
+          <span class="detail-number">02</span>
+          <span>✳</span>
+        </div>
+        <h3>Attention to detail</h3>
+        <p>
+          A thoughtful approach to shape,
+          balance and finishing touches.
+        </p>
+      </div>
+
+      <div class="detail-item reveal">
+        <div class="detail-top">
+          <span class="detail-number">03</span>
+          <span>✳</span>
+        </div>
+        <h3>Time for yourself</h3>
+        <p>
+          Step away from the everyday
+          and enjoy the process.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">03 / The menu</div>
+      <h2 class="services-title">The art of<br><em>the cut.</em></h2>
+    </div>
+
+    <p>
+      A considered selection of grooming
+      experiences. Each service is designed
+      around precision and personal style.
+    </p>
+  </div>
+
+  <div class="service-list">
+    <div class="service-row reveal">
+      <span class="service-number">01</span>
+      <h3>The Signature Cut</h3>
+      <p>A tailored haircut shaped around your individual style.</p>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-row reveal">
+      <span class="service-number">02</span>
+      <h3>The Skin Fade</h3>
+      <p>Clean transitions, balanced proportions and sharp finishing.</p>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-row reveal">
+      <span class="service-number">03</span>
+      <h3>Beard Experience</h3>
+      <p>Shape, definition and attention to every detail.</p>
+      <span class="service-arrow">↗</span>
+    </div>
+
+    <div class="service-row reveal">
+      <span class="service-number">04</span>
+      <h3>The Traditional Shave</h3>
+      <p>A timeless grooming ritual with a contemporary perspective.</p>
+      <span class="service-arrow">↗</span>
+    </div>
+  </div>
+
+  <p class="services-note">
+    SERVICE NAMES ARE PRESENTED AS CONCEPT EXAMPLES AND REQUIRE OWNER CONFIRMATION.
+  </p>
+</section>
+
+<section class="statement">
+  <div class="statement-image">
+    <img
+      src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1800&q=90"
+      alt="Barber at work"
+      loading="lazy"
+    >
+  </div>
+
+  <div class="statement-content reveal">
+    <div class="section-label">The Veli's perspective</div>
+    <h2>
+      Look sharp.<br>
+      Feel <em>yourself.</em>
+    </h2>
+    <p>
+      The best result is not simply how you look
+      when you leave. It is how you feel.
+    </p>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-heading reveal">
+    <div>
+      <div class="section-label">04 / Visual stories</div>
+      <h2>Details make<br><em>the difference.</em></h2>
+    </div>
+    <p>Craft / Space / Character</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img
+        src="https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?auto=format&fit=crop&w=1000&q=90"
+        alt="Barber grooming detail"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="gallery-item reveal">
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1000&q=90"
+        alt="Modern barber shop"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="gallery-item reveal">
+      <img
+        src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=90"
+        alt="Precision haircut"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="gallery-item reveal">
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=90"
+        alt="Barber studio"
+        loading="lazy"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-top reveal">
+    <div>
+      <div class="section-label">05 / Find your way</div>
+      <h2>
+        Your next<br>
+        <em>chapter.</em>
+      </h2>
+    </div>
+
+    <p class="contact-intro">
+      Good grooming starts with a conversation.
+      Get in touch and discover a more considered
+      approach to your next cut.
+    </p>
+  </div>
+
+  <div class="contact-bottom reveal">
+    <div>
+      <div class="contact-label">Visit us</div>
+      <div class="contact-value">
+        472 Caledonian Road<br>
+        London N7 8TB
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-label">Call</div>
+      <div class="contact-value">
+        <a href="tel:+442080624612">+44 20 8062 4612</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-label">Follow the story</div>
+      <div class="contact-value">
+        <a href="https://www.instagram.com/velisgrooming/" target="_blank" rel="noopener">
+          Instagram ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo">VELI'S GROOMING</div>
+  <p>Unofficial portfolio concept · Created by HEWERONE STUDIO</p>
+  <p>London · N7</p>
+</footer>
+
+<script>
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".nav");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.textContent = isOpen ? "×" : "☰";
+});
+
+document.querySelectorAll(".nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
+  });
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>

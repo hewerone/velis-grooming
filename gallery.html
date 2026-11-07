@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e9e6de">
+<title>Gallery — Veli's Grooming House</title>
+<meta name="description" content="Explore the details, atmosphere and craft of Veli's Grooming House.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper:#e9e6de;
+  --paper-light:#f2efe8;
+  --ink:#252820;
+  --olive:#535b43;
+  --olive-dark:#333a2e;
+  --muted:#77796f;
+  --white:#f8f6f0;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+a {
+  color:inherit;
+  text-decoration:none;
+}
+
+.top-line {
+  height:4px;
+  background:var(--olive);
+}
+
+/* HEADER */
+
+header {
+  width:100%;
+  padding:27px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(37,40,32,.12);
+  position:relative;
+  z-index:10;
+}
+
+.logo {
+  display:flex;
+  flex-direction:column;
+  line-height:1;
+}
+
+.logo strong {
+  font-family:'Manrope',sans-serif;
+  font-size:23px;
+  letter-spacing:3px;
+  font-weight:800;
+}
+
+.logo span {
+  font-size:9px;
+  letter-spacing:4px;
+  margin-top:7px;
+  color:var(--muted);
+}
+
+nav {
+  display:flex;
+  gap:35px;
+  align-items:center;
+}
+
+nav a {
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  transition:.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color:var(--olive);
+}
+
+.nav-cta {
+  background:var(--olive-dark);
+  color:var(--white);
+  padding:15px 22px;
+}
+
+.nav-cta:hover {
+  background:var(--olive);
+  color:white;
+}
+
+.menu-toggle {
+  display:none;
+  background:none;
+  border:none;
+  font-size:26px;
+  color:var(--ink);
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero {
+  padding:105px 7% 85px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:end;
+  gap:50px;
+}
+
+.eyebrow {
+  color:var(--olive);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(55px,7.5vw,105px);
+  font-weight:500;
+  line-height:.98;
+  letter-spacing:-3px;
+}
+
+.hero h1 em {
+  color:var(--olive);
+  font-weight:500;
+}
+
+.hero-right {
+  max-width:340px;
+  padding-bottom:8px;
+}
+
+.hero-right p {
+  font-size:14px;
+  line-height:1.9;
+  color:var(--muted);
+}
+
+.hero-number {
+  margin-top:30px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.hero-number::before {
+  content:"";
+  height:1px;
+  width:45px;
+  background:var(--olive);
+}
+
+/* FEATURE */
+
+.feature {
+  padding:0 7%;
+}
+
+.feature-image {
+  width:100%;
+  height:540px;
+  overflow:hidden;
+  position:relative;
+}
+
+.feature-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 45%;
+  display:block;
+  filter:saturate(.75);
+  transition:transform 1s;
+}
+
+.feature-image:hover img {
+  transform:scale(1.025);
+}
+
+.feature-label {
+  position:absolute;
+  bottom:30px;
+  left:30px;
+  color:white;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+
+/* INTRO */
+
+.gallery-intro {
+  padding:115px 7% 55px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+}
+
+.gallery-intro h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,5vw,62px);
+  font-weight:500;
+  line-height:1.1;
+}
+
+.gallery-intro p {
+  max-width:300px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+/* GALLERY */
+
+.gallery {
+  padding:0 7% 120px;
+}
+
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  grid-auto-flow:dense;
+  align-items:start;
+}
+
+.gallery-item {
+  overflow:hidden;
+  position:relative;
+  background:#d6d2c8;
+  min-width:0;
+}
+
+.gallery-item img {
+  display:block;
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  filter:saturate(.78);
+  transition:transform .8s,filter .8s;
+}
+
+.gallery-item:hover img {
+  transform:scale(1.035);
+  filter:saturate(1);
+}
+
+/* FIRST PHOTO: NATURAL PROPORTIONS */
+
+.gallery-item.first-photo img {
+  height:auto;
+  max-height:none;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+}
+
+.gallery-item.wide {
+  grid-column:span 2;
+}
+
+.gallery-item.wide img {
+  height:500px;
+}
+
+.gallery-item.tall img {
+  height:560px;
+}
+
+.gallery-caption {
+  position:absolute;
+  bottom:20px;
+  left:22px;
+  color:white;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+
+/* QUOTE */
+
+.quote-section {
+  background:var(--olive-dark);
+  color:var(--white);
+  padding:105px 7%;
+  text-align:center;
+}
+
+.quote-section span {
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:4px;
+  color:#b6bba9;
+}
+
+.quote-section h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(35px,5vw,65px);
+  font-weight:500;
+  line-height:1.2;
+  max-width:850px;
+  margin:30px auto 0;
+}
+
+.quote-section h2 em {
+  color:#c1c8b0;
+}
+
+/* CONTACT */
+
+.contact-section {
+  padding:105px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+}
+
+.contact-section h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,5vw,65px);
+  font-weight:500;
+  line-height:1.1;
+}
+
+.contact-section p {
+  margin-top:18px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.contact-button {
+  display:inline-block;
+  background:var(--olive-dark);
+  color:white;
+  padding:19px 30px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+  white-space:nowrap;
+}
+
+.contact-button:hover {
+  background:var(--olive);
+  transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer {
+  background:#252820;
+  color:var(--white);
+  padding:55px 7% 25px;
+}
+
+.footer-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  padding-bottom:50px;
+}
+
+.footer-logo strong {
+  font-family:'Manrope',sans-serif;
+  font-size:25px;
+  letter-spacing:3px;
+}
+
+.footer-logo span {
+  display:block;
+  color:#aaa99f;
+  font-size:9px;
+  letter-spacing:4px;
+  margin-top:8px;
+}
+
+.footer-links {
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.footer-links a {
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#c6c6bd;
+  transition:.3s;
+}
+
+.footer-links a:hover {
+  color:white;
+}
+
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:22px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#92938a;
+  font-size:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+
+  header {
+    padding:22px 6%;
+  }
+
+  .logo strong {
+    font-size:20px;
+  }
+
+  .menu-toggle {
+    display:block;
+  }
+
+  nav {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:var(--paper-light);
+    padding:25px 6% 30px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:24px;
+    border-bottom:1px solid rgba(37,40,32,.15);
+  }
+
+  nav.open {
+    display:flex;
+  }
+
+  .hero {
+    padding:75px 6% 55px;
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .hero h1 {
+    font-size:clamp(52px,14vw,75px);
+    letter-spacing:-2px;
+  }
+
+  .hero-right {
+    max-width:100%;
+  }
+
+  .feature {
+    padding:0 6%;
+  }
+
+  .feature-image {
+    height:360px;
+  }
+
+  .gallery-intro {
+    padding:80px 6% 35px;
+    display:block;
+  }
+
+  .gallery-intro h2 {
+    font-size:43px;
+  }
+
+  .gallery-intro p {
+    margin-top:20px;
+  }
+
+  .gallery {
+    padding:0 6% 80px;
+  }
+
+  .gallery-grid {
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    grid-auto-flow:row;
+  }
+
+  .gallery-item,
+  .gallery-item.wide {
+    grid-column:span 1;
+  }
+
+  .gallery-item img,
+  .gallery-item.wide img,
+  .gallery-item.tall img {
+    height:245px;
+  }
+
+  /* First photo keeps its original proportions */
+  .gallery-item.first-photo img {
+    height:auto;
+    max-height:none;
+    aspect-ratio:auto;
+    object-fit:contain;
+  }
+
+  .gallery-caption {
+    left:10px;
+    bottom:12px;
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  .quote-section {
+    padding:75px 7%;
+  }
+
+  .contact-section {
+    padding:75px 6%;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .footer-top {
+    flex-direction:column;
+    gap:35px;
+  }
+
+  .footer-links {
+    gap:18px;
+  }
+
+  .footer-bottom {
+    flex-direction:column;
+    line-height:1.7;
+  }
+}
+
+@media(max-width:380px) {
+  .gallery-grid {
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.wide {
+    grid-column:span 1;
+  }
+
+  .gallery-item img,
+  .gallery-item.wide img,
+  .gallery-item.tall img {
+    height:320px;
+  }
+
+  .gallery-item.first-photo img {
+    height:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-line"></div>
+
+<header>
+  <a href="index.html" class="logo">
+    <strong>VELI'S</strong>
+    <span>GROOMING HOUSE</span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+  <nav id="navigation">
+    <a href="about.html">Experience</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="index.html#contact">Find us</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">The Veli's Gallery</div>
+    <h1>The details<br>make the <em>look.</em></h1>
+  </div>
+
+  <div class="hero-right">
+    <p>
+      A closer look at the craft, the atmosphere and the details
+      that make every visit an experience. Because great grooming
+      is never just about the haircut.
+    </p>
+    <div class="hero-number">A visual collection · 01</div>
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-image">
+    <img
+      src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85"
+      alt="Barbershop interior"
+    >
+    <div class="feature-label">The art of grooming</div>
+  </div>
+</section>
+
+<section class="gallery-intro">
+  <div>
+    <div class="eyebrow">Behind the chair</div>
+    <h2>Craft. Character.<br>Confidence.</h2>
+  </div>
+
+  <p>
+    Every detail has its place. From the atmosphere
+    of the space to the precision behind every cut.
+  </p>
+</section>
+
+<section class="gallery">
+  <div class="gallery-grid">
+
+    <!-- 1. FIRST PHOTO: FULL IMAGE -->
+    <div class="gallery-item first-photo">
+      <img
+        src="https://images.unsplash.com/photo-1653875700322-cf550d9a52ff?auto=format&fit=crop&w=900&q=85"
+        alt="Barber working on a haircut"
+        loading="lazy"
+      >
+      <div class="gallery-caption">Precision</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="gallery-item tall">
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85"
+        alt="Barber styling hair"
+        loading="lazy"
+      >
+      <div class="gallery-caption">The process</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85"
+        alt="Modern grooming studio"
+        loading="lazy"
+      >
+      <div class="gallery-caption">The atmosphere</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85"
+        alt="Barber tools and haircut"
+        loading="lazy"
+      >
+      <div class="gallery-caption">The details</div>
+    </div>
+
+    <!-- 5. REPLACED IMAGE -->
+    <div class="gallery-item wide">
+      <img
+        src="https://images.unsplash.com/photo-1699641975121-5c3f55a553e5?auto=format&fit=crop&w=1800&q=85"
+        alt="Barber working with a client"
+        loading="lazy"
+      >
+      <div class="gallery-caption">A timeless craft</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1596728325488-58c87691e9af?auto=format&fit=crop&w=900&q=85"
+        alt="Modern men's haircut"
+        loading="lazy"
+      >
+      <div class="gallery-caption">Individual style</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85"
+        alt="Barber shop details"
+        loading="lazy"
+      >
+      <div class="gallery-caption">The experience</div>
+    </div>
+
+    <!-- 8. NEW PHOTO -->
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1759134248487-e8baaf31e33e?auto=format&fit=crop&w=900&q=85"
+        alt="Modern barbershop interior"
+        loading="lazy"
+      >
+      <div class="gallery-caption">The space</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="quote-section">
+  <span>More than a haircut</span>
+  <h2>
+    It's not just about how you
+    <em>look.</em><br>
+    It's about how you feel.
+  </h2>
+</section>
+
+<section class="contact-section" id="contact">
+  <div>
+    <div class="eyebrow">Your next visit</div>
+    <h2>Make time<br>for yourself.</h2>
+    <p>Good style starts with the right experience.</p>
+  </div>
+
+  <a href="https://www.instagram.com/velisgrooming/"
+     target="_blank"
+     rel="noopener"
+     class="contact-button">
+    Get in touch
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-top">
+    <a href="index.html" class="footer-logo">
+      <strong>VELI'S</strong>
+      <span>GROOMING HOUSE</span>
+    </a>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Experience</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="https://www.instagram.com/velisgrooming/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Veli's Grooming House</span>
+    <span>Unofficial portfolio concept · HEWERONE STUDIO</span>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navigation = document.getElementById('navigation');
+
+menuToggle.addEventListener('click', () => {
+  navigation.classList.toggle('open');
+  menuToggle.textContent =
+    navigation.classList.contains('open') ? '✕' : '☰';
+});
+
+navigation.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navigation.classList.remove('open');
+    menuToggle.textContent = '☰';
+  });
+});
+</script>
+
+</body>
+</html>
